@@ -7,6 +7,7 @@
     <title>Task List</title>
 </head>
 <body>
+    <a href="{% url 'task-create' %}">add a task</a>
     <h1>Tasks</h1>
     <table>
         <tr>
@@ -16,6 +17,7 @@
         {% for task in tasks %}
         <tr>
             <td>{{task.title}}</td>
+            <td><a href="{% url 'task' task.id %}">detailed view</a></td>
         </tr>
         {% empty %}
             <h3>No itmes in list</h3>
