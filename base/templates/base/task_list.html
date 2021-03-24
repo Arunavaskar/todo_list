@@ -12,12 +12,15 @@
     <table>
         <tr>
             <th>Item</th>
+            <th></th>
+            <th></th>
         </tr>
         <!-- for loop looping through the 'tasks' query set -->
         {% for task in tasks %}
         <tr>
             <td>{{task.title}}</td>
             <td><a href="{% url 'task' task.id %}">detailed view</a></td>
+            <td><a href="{% url 'task-update' task.id %}">edit</a></td>
         </tr>
         {% empty %}
             <h3>No itmes in list</h3>
