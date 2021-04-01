@@ -7,6 +7,21 @@
     <title>Task List</title>
 </head>
 <body>
+    
+    {% if request.user.is_authenticated %}
+        <!-- #we can see the logged in user using this object function usage
+        #django uses sessions
+        #inspect/memory/aplication/cookies : session ID
+        #this is how django uses session auth in the begining -->
+        <p>{{request.user}}</p>
+        <a href="">Log Out</a>
+    {% else %}
+    <a href=" {% url 'login' %} ">Log In</a>
+
+    {% endif %}
+    <hr>
+
+
     <a href="{% url 'task-create' %}">add a task</a>
     <h1>Tasks</h1>
     <table>
