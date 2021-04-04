@@ -14,7 +14,7 @@
         #inspect/memory/aplication/cookies : session ID
         #this is how django uses session auth in the begining -->
         <p>{{request.user}}</p>
-        <a href="">Log Out</a>
+        <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
     <a href=" {% url 'login' %} ">Log In</a>
 
