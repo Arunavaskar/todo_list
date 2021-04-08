@@ -49,6 +49,14 @@ class TaskList(LoginRequiredMixin, ListView):
         context['tasks'] = context['tasks'].filter(user = self.request.user)
         context['count'] = context['tasks'].filter(complete = False).count()
 
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            context['tasks'] = context['tasks'].filter(title__startswith = search_input)
+
+        context['search_input'] = search_input
+
+        return context
+
 
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
@@ -58,7 +66,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
-    fields = {'title', 'description', 'complete'}
+    fields = ['title', 'description', 'complete']
     #form_class = form_model_name
     #we can create a model for the form and then assign
     #that model form to form_class attribute instead 
@@ -72,7 +80,7 @@ class TaskCreate(LoginRequiredMixin, CreateView):
 
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = {'title', 'description', 'complete'}
+    fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('tasks')
 
 

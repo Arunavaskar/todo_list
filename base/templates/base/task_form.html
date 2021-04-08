@@ -8,12 +8,12 @@
 </head>
 <body>
     <h3>Task Form</h3>
-    <a href="{% url 'tasks' %}">Task list</a>
+    <a href="{% url 'tasks' %}">go back</a>
 
     <form method="POST" action="">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit">
+        <input type="submit" value="Submit">
     </form>
 
 </body>

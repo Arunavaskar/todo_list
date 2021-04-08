@@ -24,6 +24,10 @@
 
     <a href="{% url 'task-create' %}">add a task</a>
     <h1>Tasks</h1>
+    <form method="GET" action="">
+        <input type="text" name="search-area" value="{{ search_input }}">
+        <input type="submit" value="search">
+    </form>
     <table>
         <tr>
             <th>Item</th>
@@ -34,8 +38,8 @@
         {% for task in tasks %}
         <tr>
             <td>{{task.title}}</td>
-            <td><a href="{% url 'task' task.id %}">detailed view</a></td>
-            <td><a href="{% url 'task-update' task.id %}">edit</a></td>
+            <td><a href="{% url 'task' task.id %}">detailed view  .</a></td>
+            <td><a href="{% url 'task-update' task.id %}">edit  .</a></td>
             <td><a href="{% url 'task-delete' task.id %}">delete</a></td>
         </tr>
         {% empty %}
