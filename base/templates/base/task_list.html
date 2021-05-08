@@ -1,20 +1,25 @@
-<!DOCTYPE html>
+{% extends 'base/main.html' %}
+{% block content %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task List</title>
-</head>
+</head> -->
+
 <body>
-    
+
     {% if request.user.is_authenticated %}
-        <!-- #we can see the logged in user using this object function usage
+    <!-- #we can see the logged in user using this object function usage
         #django uses sessions
         #inspect/memory/aplication/cookies : session ID
         #this is how django uses session auth in the begining -->
-        <p>{{request.user}}</p>
-        <a href="{% url 'logout' %}">Log Out</a>
+    <p>{{request.user}}</p>
+    <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
     <a href=" {% url 'login' %} ">Log In</a>
 
@@ -38,13 +43,18 @@
         {% for task in tasks %}
         <tr>
             <td>{{task.title}}</td>
-            <td><a href="{% url 'task' task.id %}">detailed view  .</a></td>
-            <td><a href="{% url 'task-update' task.id %}">edit  .</a></td>
+            <!-- <td><a href="{% url 'task' task.id %}">detailed view  .</a></td> -->
+            <td><a href="{% url 'task-update' task.id %}">edit .</a></td>
             <td><a href="{% url 'task-delete' task.id %}">delete</a></td>
         </tr>
         {% empty %}
-            <h3>No itmes in list</h3>
+        <h3>No itmes in list</h3>
         {% endfor %}
     </table>
 </body>
-</html>
+
+<!-- </html> -->
+
+{% endblock content %}
+
+
