@@ -120,4 +120,10 @@ LOGIN_URL = 'login'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+#this one is enough if the static folder is tied to a specific app folder
 STATIC_URL = '/static/'
+
+#use this if the static folder in the project folder level.
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
