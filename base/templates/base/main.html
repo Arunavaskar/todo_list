@@ -18,8 +18,25 @@
 <body>
     
     <div class="container">
-        {% block content %}
+        <h1>SuJF To Do Lists App</h1>
 
+        {% if 'task-update' in request.path %}
+            <h2>Task Edit</h2>
+        {% elif 'task-create' in request.path%}
+            <h2>Task Create</h2>
+        {% elif 'login' in request.path%}
+            <h2>Log in</h2>
+        {% elif 'register' in request.path%}
+            <h2>Register</h2>
+        {% elif 'task-delete' in request.path%}
+            <h2>Delete Confirmation</h2>
+        {% else %}
+            <h2>Task List</h2>
+        
+        {% endif %}
+
+        {% block content %}
+                    
         {% endblock content %}
     </div>
 
