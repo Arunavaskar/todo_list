@@ -1,17 +1,8 @@
 {% extends 'base/main.html' %}
 {% block content %}
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List</title>
-</head> -->
-
 <body>
+    
 
     {% if request.user.is_authenticated %}
     <!-- #we can see the logged in user using this object function usage
@@ -28,7 +19,7 @@
 
 
     <a href="{% url 'task-create' %}">add a task</a>
-    <h1>Tasks</h1>
+    
     <form method="GET" action="">
         <input type="text" name="search-area" value="{{ search_input }}">
         <input type="submit" value="search">
@@ -53,7 +44,6 @@
     </table>
 </body>
 
-<!-- </html> -->
 
 {% endblock content %}
 
