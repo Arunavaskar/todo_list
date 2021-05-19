@@ -2,20 +2,13 @@
 {% block content %}
 
 
-<body>
-  
+<form method='POST' action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+</form>
 
-    <form method='POST' action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Register">
-
-    </form>
-
-    <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
-</body>
-
-
+<p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
 
 {% endblock content %}
 

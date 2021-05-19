@@ -1,4 +1,3 @@
-
 body{
     background-color: #fafafa;
     font-family: 'Nunito', sans-serif;
@@ -7,7 +6,50 @@ body{
 
 .container{
     max-width: 550px;
+    max-height: max-content;
+    min-height: 700px;
     margin: auto;
-    background-color: #fff;
+    background-color: #3C6997;
+}
+.container td{
+    color: #fafafa;
+}
+.container a{
+    text-decoration: none;
+    color: #fafafa;
+}
 
+
+.header-bar{
+    display: grid;
+    justify-content: center;
+
+    background-color: #094074;
+    border-radius: 10px;
+}
+
+.header-bar h1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.header-bar p{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.header-bar a{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    align-self: center;
+}
+
+.header-bar a, p, h2, h1  {
+    text-decoration: none;
+    color: #ffff;
 }

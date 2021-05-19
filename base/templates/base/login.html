@@ -1,19 +1,14 @@
-
 {% extends 'base/main.html' %}
 {% block content %}
 
-<body>
-    <form method='POST' action="" class="main">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="log in">
+<form method='POST' action="" class="main">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="log in">
+</form>
         
-    </form>
-        
-    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
-
-</body>
-
+<p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
 
 {% endblock content %}
+
 

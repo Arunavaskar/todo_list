@@ -11,34 +11,40 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>To Do List</title> 
-
-
-
 </head>
-<body>
-    
+
+<body>  
     <div class="container">
-        <h1>SuJF To Do Lists App</h1>
-
-        {% if 'task-update' in request.path %}
+        <div class="header-bar">
+            <!-- app name -->
+            <h1>SuJF To Do Lists App</h1>
+            <!-- page name -->
+            {% if 'task-update' in request.path %}
             <h2>Task Edit</h2>
-        {% elif 'task-create' in request.path%}
+            {% elif 'task-create' in request.path%}
             <h2>Task Create</h2>
-        {% elif 'login' in request.path%}
+            {% elif 'login' in request.path%}
             <h2>Log in</h2>
-        {% elif 'register' in request.path%}
+            {% elif 'register' in request.path%}
             <h2>Register</h2>
-        {% elif 'task-delete' in request.path%}
+            {% elif 'task-delete' in request.path%}
             <h2>Delete Confirmation</h2>
-        {% else %}
+            {% else %}
             <h2>Task List</h2>
-        
-        {% endif %}
-
-        {% block content %}
-                    
-        {% endblock content %}
+            {% endif %}
+            <!-- logged in username -->
+            {% if request.user.is_authenticated and 'login' not in request.path%}
+            <!-- #we can see the logged in user using this object function usage
+            #django uses sessions
+            #inspect/memory/aplication/cookies : session ID
+            #this is how django uses session auth in the begining -->
+            <p>{{request.user}}</p>
+            <a href="{% url 'logout' %}">Log Out</a>
+            {% elif 'login' not in request.path %}
+            <a href=" {% url 'login' %} ">Log In</a>
+            {% endif %}
+        </div>
+        {% block content %} {% endblock content %}
     </div>
-
 </body>
 </html>
